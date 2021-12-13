@@ -1,0 +1,6 @@
+node_modules
+.DS_Store
+.tool-versions
+dist
+dist-ssr
+*.local
