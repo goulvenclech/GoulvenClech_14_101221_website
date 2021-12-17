@@ -1,0 +1,22 @@
+/**
+ * Used to standardize the style and usage of select menus in all our forms.
+ */
+export default function SelectMenu({name, options}: Props) {
+  return(
+    <div className="flex flex-col gap-1">
+    <label>{name}</label>
+    <select id={name} name={name}
+      className="border-2 border-black py-1 text-sm">
+      {
+        options.map((option, index) => { 
+        return <option value={option} key={index}>{option}</option>
+        })
+      }
+    </select>
+    </div>
+  )
+}
+interface Props {
+  name: string,
+  options: Array<string>
+}
