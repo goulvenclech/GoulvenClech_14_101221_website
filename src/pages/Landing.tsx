@@ -1,11 +1,12 @@
 import {Link} from "react-router-dom"
 import {Test} from "@goulvenc/typescript-date-picker"
+import NewEmployeeForm from "../components/landing/NewEmployeeForm"
 /**
  * Landing page of our HR Net application.
  */
 export default function LandingPage() {
   return(
-    <main className="w-96 mx-auto p-4">
+    <main className="w-80 mx-auto p-4">
       <h1 className="text-4xl text-center font-bold leading-loose">
         HRnet
       </h1>
@@ -14,9 +15,7 @@ export default function LandingPage() {
           View Current Employees
         </Link>
       </div>
-      <h2 className="text-center text-2xl font-bold my-6">
-        Create Employee
-      </h2>
+      <NewEmployeeForm />
       <Test text="Work in progress" />
     </main>
   )
