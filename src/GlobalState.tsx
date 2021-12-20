@@ -3,6 +3,8 @@ import { Employee } from "./types"
 /**
  * We use a React context as a global state, filled with placefolder value.
  * Note that our global state will just be an array of employees for now.
+ * But in the future, we can imagine a complex store, where `store.employees`
+ * is juste one of the data stored :)
  */
 const GlobalStateContext = createContext({
   state: [] as Partial<Array<Employee>>,

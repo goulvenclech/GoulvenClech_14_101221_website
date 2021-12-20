@@ -1,8 +1,9 @@
+import { SetStateAction } from "react"
 import SelectMenu from "../SelectMenu"
 /**
  * Used to standardize the style and usage of the state select menu in all our forms.
  */
-export default function StateSelect() {
+export default function StateSelect({setFunction}: Props) {
   // List of all the union's states
   const states: Array<string> = 
   ['Alabama','Alaska','American Samoa','Arizona','Arkansas','California','Colorado','Connecticut',
@@ -14,6 +15,9 @@ export default function StateSelect() {
   'Puerto Rico','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont',
   'Virgin Island','Virginia','Washington','West Virginia','Wisconsin','Wyoming']
   return(
-    <SelectMenu name="State" options={states} />
+    <SelectMenu name="State" options={states} setFunction={setFunction} />
   )
+}
+interface Props {
+  setFunction: React.Dispatch<SetStateAction<string>>
 }

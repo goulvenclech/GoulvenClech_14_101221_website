@@ -17,14 +17,16 @@ export default function NewEmployeeForm() {
   const [ startDate, setStartDate ] = useState("")
   const [ street, setStreet ] = useState("")
   const [ city, setCity ] = useState("")
+  const [ state, setState ] = useState("")
   const [ zipCode, setZipCode ] = useState("")
+  const [ dept, setDept ] = useState("")
   // On submit, add a new employee to our globalState
   const { dispatch } = useGlobalState()
   const handleSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault()
     dispatch({type: "addEmployee", payload: {
       firstName: firstName, lastName: lastName, dateOfBirth: birthDate, startDate: startDate,
-      street: street, city: city, zipCode: zipCode, state: "", departement: ""
+      street: street, city: city, zipCode: zipCode, state: state, departement: dept
     }})
     // typescript bs
     const target = event.target as HTMLFormElement
@@ -44,10 +46,10 @@ export default function NewEmployeeForm() {
         <FieldSet name="Adress">
           <TextInput name="Street" setFunction={setStreet} />
           <TextInput name="City" setFunction={setCity} />
-          <StateSelect />
+          <StateSelect setFunction={setState} />
           <ZipCodeInput name="Zip Code" setFunction={setZipCode} />
         </FieldSet>
-        <DepartementSelect />
+        <DepartementSelect setFunction={setDept} />
         <button type="submit" value="Submit" 
           className="block w-14 mx-auto my-4 border-2 border-black">
           Save

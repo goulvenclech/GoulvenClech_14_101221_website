@@ -1,13 +1,13 @@
 import { useGlobalState } from "../../../GlobalState"
-import Table from "../Table"
+import TableWrapper from "../TableWrapper"
 /**
  * 
  */
 export default function EmployeesTable() {
   //
   const cols: Array<string> = 
-    ["First Name", "Last Name", "Start Date", "Department", "Date of Birth",
-    "Street", "City", "State", "Zip Code"]
+    ["First Name", "Last Name", "Start Date", "Date of Birth",
+    "Street", "City", "State", "Zip Code",  "Department"]
   //
   const { state } = useGlobalState()
   console.log(state)
@@ -17,6 +17,6 @@ export default function EmployeesTable() {
     }else return []
   })
   return(
-    <Table cols={cols} items={items} />
+    <TableWrapper id="currentEmployeesTable" cols={cols} items={items} />
   )
 }
