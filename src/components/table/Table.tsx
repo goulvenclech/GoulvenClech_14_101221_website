@@ -13,18 +13,20 @@ export default function Table({cols, items}:Props) {
           }
         </tr>
       </thead>
-      {
-        items.map((item, index) => { // create a row for each item
-          return <tr className={"leading-loose border-y border-black " + 
-            (index%2==0 ? "bg-slate-100" : "") } key={index}>
-            { // create a table data for each columns, with every value of the item
-              item.map((value, index) => {
-                return <td key={index}>{value}</td>
-              })
-            }
-          </tr>
-        })
-      }
+      <tbody>
+        {
+          items.map((item, index) => { // create a row for each item
+            return <tr className={"leading-loose border-y border-black " + 
+              (index%2==0 ? "bg-slate-100" : "") } key={index}>
+              { // create a table data for each columns, with every value of the item
+                item.map((value, index) => {
+                  return <td key={index}>{value}</td>
+                })
+              }
+            </tr>
+          })
+        }
+      </tbody>
     </table>
   )
 }
