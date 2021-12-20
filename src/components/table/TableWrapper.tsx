@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react"
+import SelectMaxEntries from "./selectMaxEntries"
 import Table from "./Table"
+import TableSearch from "./TableSearch"
 /**
  * Wrap together our table and some useful tools like research or filters
  */
 export default function TableWrapper({id, cols, items}: Props) {
   // store all useful information
   const [query, setQuery] = useState("")
-  const [maxEntries, setMaxEntries] = useState(0)
-  const [results, setResults] = useState(items)
+  const [maxEntries, setMaxEntries] = useState(10)
+  const [results, setResults] = useState(items.slice(0,10))
   // Filter and slice results
   useEffect(() => {
     const filteredItems = items.filter(properties => 
@@ -21,24 +23,8 @@ export default function TableWrapper({id, cols, items}: Props) {
         {id}
       </h2>
       <div className="flex my-6">
-        <div>
-          Show
-          <select className="border border-black mx-2 py-1 text-sm" value={10}
-            onChange={(event) => {setMaxEntries(parseInt(event.target.value))}} >
-            <option value={10} selected>10</option>
-            <option value={25}>25</option>
-            <option value={50}>50</option>
-            <option value={100}>100</option>
-          </select>
-          entries
-        </div>
-        <div className="ml-auto">
-          Search: 
-          <input type="text" name="tableResearchInput" 
-            onChange={(event) => {setQuery(event.target.value)}} 
-            className="border border-black ml-1 px-1 text-sm" >
-          </input>
-        </div>
+        <SelectMaxEntries setFunction={setMaxEntries}/>
+        <TableSearch setFunction={setQuery} />
       </div>
       <Table cols={cols} items={results} />
       <div className="flex my-6">
