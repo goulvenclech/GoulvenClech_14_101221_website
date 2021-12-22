@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
-import SelectMaxEntries from "./selectMaxEntries"
+import SelectMaxEntries from "./tools/SelectMaxEntries"
 import Table from "./Table"
-import TableSearch from "./TableSearch"
+import InputSearch from "./tools/InputSearch"
+import EntriesCounter from "./tools/EntriesCounter"
+import TablePagination from "./tools/TablePagination"
 /**
  * Wrap together our table and some useful tools like research or filters
  */
@@ -10,13 +12,19 @@ export default function TableWrapper({id, cols, items}: Props) {
   const [query, setQuery] = useState("")
   const [maxEntries, setMaxEntries] = useState(10)
   const [results, setResults] = useState(items.slice(0,10))
-  // Filter and slice results
+  const [resultLength, setResultLength] = useState(0)
+  const [currentPage, setCurrentPage] = useState(1)
   useEffect(() => {
+    console.log(maxEntries + " " + currentPage + " " + resultLength)
+    // filter results using the research query
     const filteredItems = items.filter(properties => 
       properties.some(property => property.includes(query)))
-    const slicedItems = filteredItems.slice(0, maxEntries)
+    setResultLength(filteredItems.length)
+    // Slice results using the max entries limit & the current page
+    const slicedItems = filteredItems.slice((maxEntries*currentPage-maxEntries), maxEntries*currentPage)
     setResults(slicedItems)
-  }, [query, maxEntries])
+    console.log(maxEntries + " " + currentPage + " " + resultLength)
+  }, [query, maxEntries, currentPage])
   return(
     <section>
       <h2 className="sr-only">
@@ -24,17 +32,14 @@ export default function TableWrapper({id, cols, items}: Props) {
       </h2>
       <div className="flex my-6">
         <SelectMaxEntries setFunction={setMaxEntries}/>
-        <TableSearch setFunction={setQuery} />
+        <InputSearch setFunction={setQuery} />
       </div>
       <Table cols={cols} items={results} />
       <div className="flex my-6">
-        <p>
-          Showing 0 to {items.length > maxEntries ? maxEntries : items.length  } of 
-          {" " + items.length} entries
-        </p>
-        <p className="ml-auto">
-          Page 1 
-        </p>
+        <EntriesCounter resultLength={resultLength} maxEntries={maxEntries} 
+          currentPage={currentPage} />
+        <TablePagination resultLength={resultLength} maxEntries={maxEntries} 
+          currentPage={currentPage} setFunction={setCurrentPage} />
       </div>
     </section>
   )

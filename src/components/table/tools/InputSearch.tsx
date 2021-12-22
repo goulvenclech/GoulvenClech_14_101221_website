@@ -2,7 +2,7 @@ import { SetStateAction } from "react"
 /**
  * 
  */
-export default function TableSearch({setFunction}: Props) {
+export default function InputSearch({setFunction}: Props) {
   return(
     <div className="ml-auto">
       Search: 

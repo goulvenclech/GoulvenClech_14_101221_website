@@ -1,6 +1,6 @@
 import InternLink from "../components/Link"
 import EmployeesHero from "../components/employees/EmployeesHero"
-import EmployeesTable from "../components/table/tablePresets/EmployeesTable"
+import EmployeesTable from "../components/table/presets/EmployeesTable"
 /**
  * A page displaying all employees in a table.
  */

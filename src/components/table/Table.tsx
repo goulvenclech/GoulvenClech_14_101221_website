@@ -1,10 +1,10 @@
 /**
- * 
+ * The HTML Table element in itself, contains all the results
  */
 export default function Table({cols, items}:Props) {
   return(
     <table className="table-auto w-full text-left">
-      <thead>
+      <thead className="">
         <tr>
           { // The list of string "cols" is every table columns we need to create   
             cols.map((col, index) => {
@@ -13,10 +13,10 @@ export default function Table({cols, items}:Props) {
           }
         </tr>
       </thead>
-      <tbody>
+      <tbody className="border-y border-black">
         {
           items.map((item, index) => { // create a row for each item
-            return <tr className={"leading-loose border-y border-black " + 
+            return <tr className={"leading-loose border-b border-slate-400 " + 
               (index%2==0 ? "bg-slate-100" : "") } key={index}>
               { // create a table data for each columns, with every value of the item
                 item.map((value, index) => {

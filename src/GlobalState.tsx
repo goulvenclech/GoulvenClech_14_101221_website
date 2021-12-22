@@ -6,10 +6,12 @@ import { Employee } from "./types"
  * But in the future, we can imagine a complex store, where `store.employees`
  * is juste one of the data stored :)
  */
+// Create React Context
 const GlobalStateContext = createContext({
   state: [] as Partial<Array<Employee>>,
   dispatch: {} as Dispatch<Action>,
 })
+
 /**
  * A reducer with differents actions to change the global state
  */
