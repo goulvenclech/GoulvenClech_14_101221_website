@@ -4,7 +4,7 @@
 
 HRnet is an online application for managing your team. Project 14 of the OpenClassrooms "Front End Developer" course. For this project I'm using [TypeScript](https://www.typescriptlang.org/), [React](https://reactjs.org/) and [React Router](https://reactrouter.com/) in a [statically typed](https://fr.wikipedia.org/wiki/Typage_statique) [functional](https://en.wikipedia.org/wiki/Functional_programming) paradigm.
 
-For this project, I had to refactor an [old JQuery site]() into a modern React app. I published independently the custom HTML Table as a [new NPM package](), you can find [the repository here]().
+For this project, I had to refactor an [old JQuery site](https://github.com/OpenClassrooms-Student-Center/P12_Front-end) into a modern React app. I published independently the custom HTML Table as a [new NPM package](https://www.npmjs.com/package/@goulvenc/typescript-table), you can find [the repository here](https://github.com/GoulvenC/GoulvenClech_14_101221).
 
 **Useful links:**
 - [Live demo 🌍](https://oc-p14.goulven-clech.dev) 
