@@ -259,10 +259,10 @@
     "@babel/helper-validator-identifier" "^7.15.7"
     to-fast-properties "^2.0.0"
 
-"@goulvenc/typescript-date-picker@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.npmjs.org/@goulvenc/typescript-date-picker/-/typescript-date-picker-0.0.3.tgz"
-  integrity sha512-C000nhw4M8kB3c3RfsahYJKox+zi6DyIdKxSUv3l689gHGahr618wPd0q5eCH0gLPmDcdBIXNairuKdIIMLl6g==
+"@goulvenc/typescript-table@^0.0.8":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@goulvenc/typescript-table/-/typescript-table-0.0.7.tgz#837043e5fab6b3c6b0844f614a8d414528320a74"
+  integrity sha512-tfBDQtht8vVSGgAfo6WeJZ/O0QYs0hCSN0G9ygZ5ZxgTBnrEAo7+U4cd+D7QdSVxh+XA+mFGgwg9GKB0CkBpUA==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"

@@ -1,5 +1,5 @@
 import { useGlobalState } from "../../../GlobalState"
-import TableWrapper from "../TableWrapper"
+import {TableWrapper} from "@goulvenc/typescript-table"
 /**
  * 
  */
