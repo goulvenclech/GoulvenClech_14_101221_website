@@ -10,7 +10,6 @@ export default function EmployeesTable() {
     "Street", "City", "State", "Zip Code",  "Department"]
   //
   const { state } = useGlobalState()
-  console.log(state)
   const items:Array<Array<string>> = state.map(employee => { 
     if(employee !== undefined) {
       return Object.values(employee)
