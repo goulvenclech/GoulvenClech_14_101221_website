@@ -1,4 +1,4 @@
-import { useRef, useState } from "react"
+import { useState } from "react"
 import { useGlobalState } from "../../GlobalState"
 import DepartementSelect from "../form/selectPresets/DepartementSelect"
 import FieldSet from "../form/FieldSet"
@@ -6,6 +6,7 @@ import TextInput from "../form/TextInput"
 import StateSelect from "../form/selectPresets/StateSelect"
 import DateInput from "../form/DateInput"
 import ZipCodeInput from "../form/ZipCodeInput"
+import Modal from "../modal/Modal"
 /**
  * Form to add a new employee in the global state.
  */
@@ -20,6 +21,9 @@ export default function NewEmployeeForm() {
   const [ state, setState ] = useState("")
   const [ zipCode, setZipCode ] = useState("")
   const [ dept, setDept ] = useState("")
+  // modal boilerplate
+  const [modalVisibility, setModalVisibility] = useState(false)
+  const [modalMessage, setModalMessage] = useState("")
   // On submit, add a new employee to our globalState
   const { dispatch } = useGlobalState()
   const handleSubmit = (event: React.SyntheticEvent) => {
@@ -28,6 +32,9 @@ export default function NewEmployeeForm() {
       firstName: firstName, lastName: lastName, dateOfBirth: birthDate, startDate: startDate,
       street: street, city: city, zipCode: zipCode, state: state, departement: dept
     }})
+    // display a modal with a sucess message
+    setModalMessage("Employee " + firstName + " " + lastName + " created !")
+    setModalVisibility(true)
     // typescript bs
     const target = event.target as HTMLFormElement
     // reset our form
@@ -38,6 +45,7 @@ export default function NewEmployeeForm() {
       <h2 className="text-center text-2xl font-bold my-6">
         Create Employee
       </h2>
+      <Modal message={modalMessage} visibility={modalVisibility} setVisibility={setModalVisibility} />
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <TextInput name="First Name" setFunction={setFirstName} required />
         <TextInput name="Last Name" setFunction={setLastName} required />
