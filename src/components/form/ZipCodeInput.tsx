@@ -5,7 +5,7 @@ import { SetStateAction } from "react"
 export default function ZipCodeInput({name, setFunction}:Props) {
   return(
     <div className="flex flex-col gap-1">
-      <label>{name}</label>
+      <label htmlFor={name}>{name}</label>
       <input id={name} name={name} type="number" inputMode="numeric"
         onChange={(event) => {setFunction(event.target.value)}} 
         className=" border-2 border-black p-1 text-sm" >

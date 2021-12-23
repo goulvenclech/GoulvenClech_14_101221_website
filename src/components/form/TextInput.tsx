@@ -5,7 +5,7 @@ import { SetStateAction } from "react"
 export default function TextInput({name, setFunction, required}:Props) {
   return(
     <div className="flex flex-col gap-1">
-      <label>{name}</label>
+      <label htmlFor={name}>{name}</label>
       <input type="text" id={name} name={name} 
         onChange={(event) => {setFunction(event.target.value)}} 
         className="border-2 border-black p-1 text-sm"
